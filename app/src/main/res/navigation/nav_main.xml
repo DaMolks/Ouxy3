@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/navigation_sites">
+
+    <fragment
+        android:id="@+id/navigation_sites"
+        android:name="com.damolks.ouxy3.ui.sites.SitesFragment"
+        android:label="@string/menu_sites" />
+
+    <fragment
+        android:id="@+id/navigation_marketplace"
+        android:name="com.damolks.ouxy3.ui.marketplace.MarketplaceFragment"
+        android:label="@string/menu_marketplace" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.damolks.ouxy3.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings" />
+
+</navigation>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_onboarding"
+    app:startDestination="@id/technicianProfileFragment">
+
+    <fragment
+        android:id="@+id/technicianProfileFragment"
+        android:name="com.damolks.ouxy3.ui.onboarding.TechnicianProfileFragment"
+        android:label="TechnicianProfileFragment">
+        <action
+            android:id="@+id/action_to_signature"
+            app:destination="@id/signatureFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signatureFragment"
+        android:name="com.damolks.ouxy3.ui.onboarding.SignatureFragment"
+        android:label="SignatureFragment">
+        <action
+            android:id="@+id/action_to_sites"
+            app:destination="@id/sitesSetupFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sitesSetupFragment"
+        android:name="com.damolks.ouxy3.ui.onboarding.SitesSetupFragment"
+        android:label="SitesSetupFragment" />
+
+</navigation>
