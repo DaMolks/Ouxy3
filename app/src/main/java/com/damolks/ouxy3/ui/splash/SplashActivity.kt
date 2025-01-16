@@ -1,14 +1,19 @@
 package com.damolks.ouxy3.ui.splash
 
-import android.animation.Animator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.damolks.ouxy3.R
 import com.damolks.ouxy3.databinding.ActivitySplashBinding
 import com.damolks.ouxy3.ui.main.MainActivity
 import com.damolks.ouxy3.ui.onboarding.OnboardingActivity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
@@ -24,25 +29,39 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun setupAnimation() {
-        // TODO: Implementer l'animation du logo
+        binding.logoAnimation.setAnimation(R.raw.splash_animation)
+        binding.logoAnimation.playAnimation()
+        
+        // Lancer la vérification après l'animation
+        binding.logoAnimation.addAnimatorUpdateListener { valueAnimator ->
+            if (valueAnimator.animatedFraction >= 1.0f) {
+                viewModel.checkFirstLaunch()
+            }
+        }
     }
 
     private fun observeNavigation() {
         viewModel.navigationEvent.observe(this) { destination ->
             when (destination) {
-                NavigationDestination.ONBOARDING -> startOnboarding()
-                NavigationDestination.MAIN -> startMain()
+                SplashViewModel.NavigationDestination.ONBOARDING -> startOnboarding()
+                SplashViewModel.NavigationDestination.MAIN -> startMain()
             }
         }
     }
 
     private fun startOnboarding() {
-        startActivity(Intent(this, OnboardingActivity::class.java))
-        finish()
+        lifecycleScope.launch {
+            delay(500) // Court délai pour s'assurer que l'animation est terminée
+            startActivity(Intent(this@SplashActivity, OnboardingActivity::class.java))
+            finish()
+        }
     }
 
     private fun startMain() {
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+        lifecycleScope.launch {
+            delay(500) // Court délai pour s'assurer que l'animation est terminée
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            finish()
+        }
     }
 }
