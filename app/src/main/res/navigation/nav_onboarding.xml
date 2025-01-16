@@ -6,25 +6,42 @@
 
     <fragment
         android:id="@+id/technicianProfileFragment"
-        android:name="com.damolks.ouxy3.ui.onboarding.TechnicianProfileFragment"
+        android:name="com.damolks.ouxy3.ui.onboarding.technician.TechnicianProfileFragment"
         android:label="TechnicianProfileFragment">
         <action
-            android:id="@+id/action_to_signature"
-            app:destination="@id/signatureFragment" />
+            android:id="@+id/action_profile_to_signature"
+            app:destination="@id/signatureFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
 
     <fragment
         android:id="@+id/signatureFragment"
-        android:name="com.damolks.ouxy3.ui.onboarding.SignatureFragment"
+        android:name="com.damolks.ouxy3.ui.onboarding.signature.SignatureFragment"
         android:label="SignatureFragment">
         <action
-            android:id="@+id/action_to_sites"
-            app:destination="@id/sitesSetupFragment" />
+            android:id="@+id/action_signature_to_sites"
+            app:destination="@id/sitesSetupFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
 
     <fragment
         android:id="@+id/sitesSetupFragment"
-        android:name="com.damolks.ouxy3.ui.onboarding.SitesSetupFragment"
-        android:label="SitesSetupFragment" />
+        android:name="com.damolks.ouxy3.ui.onboarding.sites.SitesSetupFragment"
+        android:label="SitesSetupFragment">
+        <action
+            android:id="@+id/action_sites_to_main"
+            app:destination="@id/mainActivity"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/nav_onboarding"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.damolks.ouxy3.ui.main.MainActivity"
+        android:label="MainActivity" />
 
 </navigation>
