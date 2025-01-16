@@ -5,9 +5,6 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import androidx.core.content.ContextCompat
-import com.damolks.ouxy3.R
-import kotlin.math.abs
 
 class SignaturePad @JvmOverloads constructor(
     context: Context,
@@ -16,94 +13,96 @@ class SignaturePad @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     private var path = Path()
-    private val paths = mutableListOf<Path>()
     private val paint = Paint().apply {
         isAntiAlias = true
         isDither = true
-        color = ContextCompat.getColor(context, R.color.md_theme_light_primary)
+        color = Color.BLACK
         style = Paint.Style.STROKE
         strokeJoin = Paint.Join.ROUND
         strokeCap = Paint.Cap.ROUND
         strokeWidth = 12f
     }
 
-    private var lastX = 0f
-    private var lastY = 0f
-    private var dx = 0f
-    private var dy = 0f
-    private var curveEndX = 0f
-    private var curveEndY = 0f
+    private var currentX = 0f
+    private var currentY = 0f
+    private val dirtyRect = RectF()
+    private val paths = mutableListOf<Path>()
 
-    private var isDrawing = false
-    private var hasSignature = false
-    private var onSignatureChangeListener: ((Boolean) -> Unit)? = null
-
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        val x = event.x
-        val y = event.y
-
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                isDrawing = true
-                path = Path()
-                path.moveTo(x, y)
-                lastX = x
-                lastY = y
-                paths.add(path)
-                invalidate()
-            }
-            MotionEvent.ACTION_MOVE -> {
-                dx = abs(x - lastX)
-                dy = abs(y - lastY)
-                if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
-                    // Calculate quadratic bezier curve points
-                    curveEndX = (x + lastX) / 2
-                    curveEndY = (y + lastY) / 2
-                    path.quadTo(lastX, lastY, curveEndX, curveEndY)
-                    lastX = x
-                    lastY = y
-                    invalidate()
-                }
-            }
-            MotionEvent.ACTION_UP -> {
-                isDrawing = false
-                path.lineTo(lastX, lastY)
-                if (!hasSignature) {
-                    hasSignature = true
-                    onSignatureChangeListener?.invoke(true)
-                }
-                invalidate()
-            }
-        }
-        return true
+    init {
+        paths.add(path)
     }
 
     override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
         paths.forEach { path ->
             canvas.drawPath(path, paint)
         }
     }
 
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val eventX = event.x
+        val eventY = event.y
+
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                path.moveTo(eventX, eventY)
+                currentX = eventX
+                currentY = eventY
+                invalidate()
+            }
+            MotionEvent.ACTION_MOVE -> {
+                val dx = Math.abs(eventX - currentX)
+                val dy = Math.abs(eventY - currentY)
+
+                if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
+                    // Utilisation de quadTo pour un lissage de Bézier
+                    path.quadTo(
+                        currentX,
+                        currentY,
+                        (eventX + currentX) / 2,
+                        (eventY + currentY) / 2
+                    )
+                    currentX = eventX
+                    currentY = eventY
+
+                    // Mise à jour de la zone sale pour optimiser le rendu
+                    dirtyRect.left = currentX.coerceAtMost(eventX) - HALF_STROKE_WIDTH
+                    dirtyRect.right = currentX.coerceAtLeast(eventX) + HALF_STROKE_WIDTH
+                    dirtyRect.top = currentY.coerceAtMost(eventY) - HALF_STROKE_WIDTH
+                    dirtyRect.bottom = currentY.coerceAtLeast(eventY) + HALF_STROKE_WIDTH
+
+                    invalidate(dirtyRect.left.toInt(),
+                        dirtyRect.top.toInt(),
+                        dirtyRect.right.toInt(),
+                        dirtyRect.bottom.toInt())
+                }
+            }
+            MotionEvent.ACTION_UP -> {
+                path = Path()
+                paths.add(path)
+            }
+        }
+        return true
+    }
+
     fun clear() {
         paths.clear()
-        hasSignature = false
-        onSignatureChangeListener?.invoke(false)
+        path = Path()
+        paths.add(path)
         invalidate()
     }
 
-    fun getSignatureBitmap(): Bitmap {
+    fun isEmpty(): Boolean = paths.size <= 1
+
+    fun toBitmap(): Bitmap {
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
+        canvas.drawColor(Color.WHITE)
         draw(canvas)
         return bitmap
     }
 
-    fun setOnSignatureChangeListener(listener: (Boolean) -> Unit) {
-        onSignatureChangeListener = listener
-    }
-
     companion object {
         private const val TOUCH_TOLERANCE = 4f
+        private const val HALF_STROKE_WIDTH = 6f
     }
 }
