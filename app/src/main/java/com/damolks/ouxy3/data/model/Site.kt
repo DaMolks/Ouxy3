@@ -4,16 +4,15 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.time.LocalDateTime
 
-@Entity(tableName = "technicians")
-data class Technician(
+@Entity(tableName = "sites")
+data class Site(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val firstName: String,
-    val lastName: String,
-    val sector: String,
-    val matricule: String,
-    val teamLeader: String,
-    val signaturePath: String? = null,
+    val name: String,
+    val address: String,
+    val contactName: String?,
+    val contactPhone: String?,
+    val notes: String?,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now()
 )
