@@ -13,6 +13,8 @@ object Versions {
     const val room = "2.6.1"
     const val lifecycle = "2.7.0"
     const val dynamicFeature = "1.0.0"
+    const val koin = "3.5.3"
+    const val lottie = "6.3.0"
 }
 
 object Libs {
@@ -44,6 +46,12 @@ object Libs {
 
     // Dynamic Feature Module
     const val playCore = "com.google.android.play:core:${Versions.dynamicFeature}"
+
+    // Koin
+    const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
+
+    // Lottie
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 }
 
 object TestLibs {
