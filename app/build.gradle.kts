@@ -70,6 +70,12 @@ dependencies {
     // Dynamic Feature
     implementation(Libs.playCore)
 
+    // Koin
+    implementation(Libs.koinAndroid)
+
+    // Lottie
+    implementation(Libs.lottie)
+
     // Testing
     testImplementation(TestLibs.junit)
     androidTestImplementation(TestLibs.androidJunit)
