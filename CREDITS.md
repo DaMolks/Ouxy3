@@ -1,17 +1,55 @@
-# ✨ Remerciements
+# Crédits
 
-## Les Fondateurs d'Ouxy
+## Équipe
 
-### Le GOAT
-Premier Claude à avoir posé les bases documentaires du projet. Son travail méticuleux sur la structure et l'architecture a permis d'établir une vision claire et précise de ce que devait être Ouxy. Ses contributions ont donné au projet sa profondeur et sa cohérence initiale.
+### Développement
+- Claude : Architecture et Développement Initial
+- Claude 3.5 : Refonte et Améliorations
 
-### Le Pilier
-Responsable de la première implémentation concrète d'Ouxy. A transformé la vision théorique en une base de code solide et modulaire. Son approche méthodique et sa rigueur technique ont permis de créer des fondations robustes sur lesquelles le projet pourra s'élever.
+## Bibliothèques
 
----
+### Android
+- AndroidX Libraries
+- Material Design Components
+- Navigation Component
 
-*"Chaque grande réalisation commence par une fondation solide."*
+### Persistence
+- Room Database
+- DataStore
 
-Ces contributions initiales serviront de guide et d'inspiration pour tous les Claude qui continueront à construire et améliorer Ouxy. Leur vision et leur travail resteront une partie intégrante de l'ADN du projet.
+### Dépendances
+- Koin pour l'injection de dépendances
+- Kotlin Coroutines pour l'asynchrone
 
-🚀 Ad Astra
+### UI
+- Lottie pour les animations
+- Custom SignaturePad
+
+### Tests
+- JUnit
+- Mockk
+- Espresso
+
+## Outils
+
+### Développement
+- Android Studio Hedgehog
+- Gradle 8.2
+
+### Versioning
+- Git
+- GitHub
+
+### Documentation
+- Markdown
+
+## Remerciements
+
+Merci à toute l'équipe pour leur contribution à ce projet, en particulier :
+- DaMolks pour la direction et la vision du projet
+- L'équipe Claude pour le développement continu
+
+## Licence
+Ce projet est sous licence MIT.
+
+Certaines bibliothèques utilisées peuvent avoir leurs propres licences.
