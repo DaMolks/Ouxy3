@@ -1,24 +1,23 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
+    kotlin("android")
+    kotlin("kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
     namespace = "com.damolks.ouxy3"
-    compileSdk = 34
+    compileSdk = Versions.compileSdk
 
     defaultConfig {
         applicationId = "com.damolks.ouxy3"
-        minSdk = 23
-        targetSdk = 34
+        minSdk = Versions.minSdk
+        targetSdk = Versions.targetSdk
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // Configuration de Room pour l'export des schémas
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += mapOf(
@@ -32,8 +31,14 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+        debug {
+            isMinifyEnabled = false
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
         }
     }
 
@@ -44,6 +49,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
@@ -51,8 +57,57 @@ android {
     }
 
     testOptions {
-        unitTests {
-            isIncludeAndroidResources = true
-        }
+        unitTests.isIncludeAndroidResources = true
     }
+}
+
+dependencies {
+    // Kotlin
+    implementation(Deps.kotlin)
+    implementation(Deps.coroutinesCore)
+    implementation(Deps.coroutinesAndroid)
+
+    // AndroidX
+    implementation(Deps.coreKtx)
+    implementation(Deps.appcompat)
+    implementation(Deps.activity)
+    implementation(Deps.fragment)
+
+    // Lifecycle
+    implementation(Deps.lifecycleViewModel)
+    implementation(Deps.lifecycleLiveData)
+
+    // Navigation
+    implementation(Deps.navigationFragment)
+    implementation(Deps.navigationUi)
+
+    // Room
+    implementation(Deps.roomRuntime)
+    implementation(Deps.roomKtx)
+    kapt(Deps.roomCompiler)
+
+    // UI
+    implementation(Deps.material)
+    implementation(Deps.constraintLayout)
+    implementation(Deps.swipeRefresh)
+    implementation(Deps.lottie)
+
+    // Koin
+    implementation(Deps.koinCore)
+    implementation(Deps.koinAndroid)
+
+    // Tests unitaires
+    testImplementation(Deps.junit)
+    testImplementation(Deps.mockk)
+    testImplementation(Deps.coroutinesTest)
+
+    // Tests d'intégration
+    androidTestImplementation(Deps.androidxTestCore)
+    androidTestImplementation(Deps.androidxTestRunner)
+    androidTestImplementation(Deps.androidxTestRules)
+    androidTestImplementation(Deps.espressoCore)
+    androidTestImplementation(Deps.mockkAndroid)
+
+    // Desugar pour java.time
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }
