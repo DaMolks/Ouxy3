@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.damolks.ouxy3.data.database.dao.SiteDao
 import com.damolks.ouxy3.data.database.dao.TechnicianDao
+import com.damolks.ouxy3.data.database.migrations.MIGRATION_1_2
 import com.damolks.ouxy3.data.model.Site
 import com.damolks.ouxy3.data.model.Technician
 
@@ -33,7 +34,10 @@ abstract class OuxyDatabase : RoomDatabase() {
                     OuxyDatabase::class.java,
                     DATABASE_NAME
                 )
-                .fallbackToDestructiveMigration()
+                .addMigrations(
+                    MIGRATION_1_2
+                    // Ajouter les futures migrations ici
+                )
                 .build()
                 INSTANCE = instance
                 instance
