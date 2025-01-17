@@ -2,20 +2,32 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
     namespace = "com.damolks.ouxy3"
-    compileSdk = Versions.compileSdk
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.damolks.ouxy3"
-        minSdk = Versions.minSdk
-        targetSdk = Versions.targetSdk
+        minSdk = 23
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Configuration de Room pour l'export des schémas
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf(
+                    "room.schemaLocation" to "$projectDir/schemas",
+                    "room.incremental" to "true",
+                    "room.expandProjection" to "true"
+                )
+            }
+        }
     }
 
     buildTypes {
@@ -24,10 +36,9 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    
+
     buildFeatures {
         viewBinding = true
-        dataBinding = true
     }
 
     compileOptions {
@@ -38,48 +49,10 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-}
 
-dependencies {
-    // Kotlin
-    implementation(Libs.kotlinStdLib)
-    implementation(Libs.coroutinesCore)
-    implementation(Libs.coroutinesAndroid)
-
-    // AndroidX
-    implementation(Libs.core)
-    implementation(Libs.appcompat)
-    implementation(Libs.material)
-    implementation(Libs.constraintLayout)
-
-    // Navigation
-    implementation(Libs.navigationFragment)
-    implementation(Libs.navigationUi)
-    implementation(Libs.navigationDynamic)
-
-    // Room
-    implementation(Libs.roomRuntime)
-    implementation(Libs.roomKtx)
-    kapt(Libs.roomCompiler)
-
-    // Lifecycle
-    implementation(Libs.lifecycleViewModel)
-    implementation(Libs.lifecycleLiveData)
-    implementation(Libs.lifecycleRuntime)
-
-    // Dynamic Feature
-    implementation(Libs.playCore)
-
-    // Koin
-    implementation(Libs.koinAndroid)
-
-    // Lottie
-    implementation(Libs.lottie)
-
-    // Testing
-    testImplementation(TestLibs.junit)
-    androidTestImplementation(TestLibs.androidJunit)
-    androidTestImplementation(TestLibs.espressoCore)
-    testImplementation(TestLibs.roomTesting)
-    testImplementation(TestLibs.coroutinesTest)
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
