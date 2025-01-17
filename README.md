@@ -1,30 +1,67 @@
-# 🌌 Ouxy3: L'Application qui Explore de Nouveaux Horizons
+# Ouxy3
 
-## 🚀 Mission Overview
-Ouxy3 est une application modulaire conçue pour les explorateurs modernes du secteur technique. Comme une station spatiale en orbite, elle s'adapte et évolue grâce à ses modules spécialisés.
+## Description
+Ouxy3 est une application Android de gestion de rapports d'intervention avec une architecture modulaire. Elle permet aux techniciens de gérer leurs interventions, sites et rapports de manière efficace et intuitive.
 
-## 🛸 Caractéristiques Principales
-- **Base de Commandement**: Une interface centrale intuitive et élégante
-- **Modules d'Extension**: Des capsules de fonctionnalités adaptables à chaque mission
-- **Système de Navigation**: Une expérience utilisateur fluide et moderne
-- **Communication Quantique**: Partage intelligent des données entre modules
+## Architecture
+- **Core Application** : Base stable gérant les modules et la persistence
+- **Modules Dynamiques** : Fonctionnalités isolées et indépendantes
+- **EventBus** : Communication inter-modules centralisée
 
-## 🌠 Technologies Embarquées
-- **Propulsion**: Kotlin
-- **Navigation**: Material Design 3
-- **Capsule de Données**: Room Database
-- **Système de Support**: Dynamic Feature Modules
+## Fonctionnalités
+- Gestion des profils techniciens
+- Capture de signature numérique
+- Gestion des sites d'intervention
+- Synchronisation et backup des données
 
-## 🌍 Configuration Requise
-- Android 6.0 (API 23) ou supérieur
-- 50 Mo d'espace disponible pour le module de base
-- Espace additionnel selon les modules installés
+## Technologies Utilisées
+- Kotlin 1.9.22
+- Android SDK 34 (min SDK 23)
+- Room pour la persistence
+- Koin pour l'injection de dépendances
+- Navigation Component
+- Material Design 3
+- Tests unitaires et d'intégration
 
-## 🛠 Installation et Configuration
-L'application s'adapte automatiquement à son environnement lors du premier lancement, guidant l'utilisateur à travers la configuration initiale de sa station personnelle.
+## Mise en Route
+1. Cloner le repository
+2. Ouvrir dans Android Studio
+3. Synchroniser avec Gradle
+4. Lancer l'application
 
-## 🌌 Explorez l'Univers des Modules
-Découvrez et installez de nouveaux modules via le Marketplace intégré, étendant les capacités de votre station selon vos besoins.
+## Structure du Projet
+```
+app/
+├── core/          # Composants centraux
+├── data/          # Couche données
+├── ui/            # Interface utilisateur
+│   ├── splash/      # Écran de démarrage
+│   ├── onboarding/  # Configuration initiale
+│   └── main/        # Écrans principaux
+└── util/          # Utilitaires
+```
 
----
-*Préparez-vous pour le lancement... 🚀*
+## Tests
+```bash
+# Tests unitaires
+./gradlew test
+
+# Tests d'intégration
+./gradlew connectedAndroidTest
+```
+
+## Documentation
+Consulter le dossier `docs/` pour :
+- Guide d'architecture
+- Documentation technique
+- Guidelines de développement
+
+## Contribution
+1. Fork le projet
+2. Créer une branche feature
+3. Commit les changements
+4. Push vers la branche
+5. Créer une Pull Request
+
+## Licence
+Ce projet est sous licence MIT - voir le fichier LICENSE pour plus de détails.
