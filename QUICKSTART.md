@@ -1,63 +1,30 @@
-# 🚀 Guide de Démarrage Rapide - Ouxy3
+# Guide de Démarrage Rapide - Ouxy3
 
-## 📍 Points d'Entrée
+## Prérequis
+- Android Studio Hedgehog | 2023.1.1 ou supérieur
+- JDK 17
+- Android SDK 34
 
-### Flux Principal de l'Application
-```
-SplashActivity → OnboardingActivity (1er lancement) → MainActivity
-```
+## Installation
 
-### Architecture des Packages
-```
-com.damolks.ouxy3
-├── ui/           # Interface utilisateur
-│   ├── splash/     # Animation de démarrage
-│   ├── onboarding/ # Configuration initiale
-│   ├── main/       # Écran principal et modules
-│   └── views/      # Composants réutilisables
-├── data/         # Couche données
-│   ├── database/   # Room et entités
-│   ├── repository/ # Accès aux données
-│   └── model/      # Modèles métier
-└── util/         # Utilitaires
+### 1. Cloner le Repository
+```bash
+git clone https://github.com/DaMolks/Ouxy3.git
+cd Ouxy3
 ```
 
-## ⚙️ Composants Clés
+### 2. Configuration Android Studio
+1. Ouvrir Android Studio
+2. File > Open > Sélectionner le dossier Ouxy3
+3. Attendre la synchronisation Gradle
 
-### Onboarding : Étapes
-1. **TechnicianProfileFragment**
-   - Collecte des informations du technicien
-   - Validation des champs obligatoires
-   ```kotlin
-   data class TechnicianFormState(
-       val firstName: String,
-       val lastName: String,
-       val sector: String,
-       val matricule: String,
-       val teamLeader: String
-   )
-   ```
+### 3. Configuration du Projet
+- Vérifier que le SDK Path est correctement configuré
+- Vérifier que Gradle JDK est sur Java 17
 
-2. **SignatureFragment**
-   - Capture de signature via SignaturePad
-   - Lissage du trait avec quadratique de Bézier
-   ```kotlin
-   class SignaturePad : View {
-       // Point clé : path.quadTo() pour le lissage
-   }
-   ```
+## Structure du Code
 
-3. **SitesSetupFragment**
-   - Ajout de sites optionnel
-   - RecyclerView avec MaterialCardView
-
-### Navigation
-- Navigation Component avec nav_onboarding.xml
-- Événements uniques via Event.kt
-
-## 📝 Conventions Importantes
-
-### Pattern MVVM
+### Architecture MVVM
 ```kotlin
 class ExampleViewModel : ViewModel() {
     private val _state = MutableLiveData<State>()
@@ -68,34 +35,45 @@ class ExampleViewModel : ViewModel() {
 ### Injection de Dépendances (Koin)
 ```kotlin
 val appModule = module {
-    single { TechnicianRepository(get()) }
-    viewModel { TechnicianProfileViewModel(get()) }
+    single { SessionManager(get()) }
+    viewModel { MainViewModel(get()) }
 }
 ```
 
-### Styles et Thèmes
-- Material Design 3
-- Thèmes clair/sombre dynamiques
-- Palette de couleurs définie dans colors.xml
+### Accès aux Données
+```kotlin
+@Dao
+interface TechnicianDao {
+    @Query("SELECT * FROM technicians")
+    fun getAllTechnicians(): Flow<List<Technician>>
+}
+```
 
-## 🎯 Points Critiques
-1. **Gestion des États**
-   - Tout état UI dans le ViewModel
-   - LiveData pour l'observation
-   - Validation synchrone
+## Tests
 
-2. **Persistance**
-   - Room comme source unique de vérité
-   - Coroutines pour l'asynchrone
-   - Repositories pour l'abstraction
+### Tests Unitaires
+```bash
+./gradlew test
+```
 
-3. **Modularité**
-   - Modules indépendants
-   - Communication via interfaces
-   - Injection de dépendances
+### Tests d'Intégration
+```bash
+./gradlew connectedAndroidTest
+```
 
-## 📄 Fichiers à Consulter en Premier
-1. app/build.gradle.kts - Configuration et dépendances
-2. OuxyApplication.kt - Point d'entrée et setup Koin
-3. ui/splash/SplashActivity.kt - Démarrage et navigation
-4. data/database/OuxyDatabase.kt - Schéma de données
+## Points d'Attention
+1. Vérifier les permissions dans AndroidManifest
+2. Configurer la clé de signature pour le release
+3. Tester sur différentes versions d'Android
+
+## Déploiement
+1. Mettre à jour versionCode/versionName
+2. Générer un APK signé
+```bash
+./gradlew assembleRelease
+```
+
+## Ressources
+- Documentation technique : `/docs`
+- Logs des changements : `CHANGELOG.md`
+- Documentation des APIs : `/docs/api`
