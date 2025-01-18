@@ -68,6 +68,7 @@ dependencies {
     implementation(Deps.activity)
     implementation(Deps.fragment)
     implementation(Deps.splashscreen)
+    implementation(Deps.security)
 
     // Lifecycle
     implementation(Deps.lifecycleViewModel)
