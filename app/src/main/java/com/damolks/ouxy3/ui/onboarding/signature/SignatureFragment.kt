@@ -32,17 +32,24 @@ class SignatureFragment : Fragment() {
 
         setupButtons()
         observeViewModel()
+        binding.nextButton.isEnabled = false
     }
 
     private fun setupButtons() {
         binding.clearButton.setOnClickListener {
             binding.signaturePad.clear()
-            updateNextButtonState()
+            binding.nextButton.isEnabled = false
+        }
+
+        binding.signaturePad.setOnTouchListener { _, event ->
+            binding.nextButton.isEnabled = true
+            false
         }
 
         binding.nextButton.setOnClickListener {
             if (binding.signaturePad.isEmpty()) {
                 Snackbar.make(binding.root, R.string.error_signature_required, Snackbar.LENGTH_SHORT).show()
+                binding.nextButton.isEnabled = false
                 return@setOnClickListener
             }
 
@@ -51,12 +58,6 @@ class SignatureFragment : Fragment() {
                 filesDir = requireContext().filesDir
             )
         }
-
-        updateNextButtonState()
-    }
-
-    private fun updateNextButtonState() {
-        binding.nextButton.isEnabled = !binding.signaturePad.isEmpty()
     }
 
     private fun observeViewModel() {
@@ -68,12 +69,12 @@ class SignatureFragment : Fragment() {
                 }
                 is SignatureState.Error -> {
                     binding.progressIndicator.isVisible = false
-                    binding.nextButton.isEnabled = true
+                    binding.nextButton.isEnabled = !binding.signaturePad.isEmpty()
                     Snackbar.make(binding.root, state.message, Snackbar.LENGTH_LONG).show()
                 }
                 else -> {
                     binding.progressIndicator.isVisible = false
-                    updateNextButtonState()
+                    binding.nextButton.isEnabled = !binding.signaturePad.isEmpty()
                 }
             }
         }
