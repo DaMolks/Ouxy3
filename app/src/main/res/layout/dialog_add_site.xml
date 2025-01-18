@@ -1,110 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/dialogTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/button_add_site"
-        android:textAppearance="?attr/textAppearanceHeadline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/siteNameLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/field_site_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialogTitle">
+        android:hint="@string/field_site_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/siteNameEdit"
+            android:id="@+id/siteName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/siteCodeLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="@string/field_site_code"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/siteNameLayout">
+        android:hint="@string/field_site_address">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/siteCodeEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/siteAddressLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/field_site_address"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/siteCodeLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/siteAddressEdit"
+            android:id="@+id/siteAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPostalAddress" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/clientNameLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="@string/field_client_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/siteAddressLayout">
+        android:hint="@string/field_contact_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/clientNameEdit"
+            android:id="@+id/contactName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/cancelButton"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/button_back"
-        app:layout_constraintEnd_toStartOf="@id/saveButton"
-        app:layout_constraintTop_toBottomOf="@id/clientNameLayout" />
+        android:layout_marginTop="8dp"
+        android:hint="@string/field_contact_phone">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contactPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/button_finish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clientNameLayout" />
+        android:layout_marginTop="8dp"
+        android:hint="@string/field_notes">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:lines="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
