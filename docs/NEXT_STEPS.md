@@ -1,5 +1,23 @@
 # Prochaines Étapes du Projet
 
+## Tests et Validation
+
+### Tests Automatisés
+- [ ] Tests des préférences utilisateur
+- [ ] Tests du marketplace
+- [ ] Tests du système de debug
+- [ ] Tests de navigation
+
+### Tests de Performance
+- [ ] Tests de charge avec beaucoup de modules
+- [ ] Tests mémoire sur le stockage des états
+- [ ] Tests de la synchronisation
+
+### Documentation
+- [ ] Guide d'utilisation des préférences
+- [ ] Documentation du marketplace
+- [ ] Guide de debugging
+
 ## Module de Rapports
 
 ### Conception
@@ -29,7 +47,7 @@
 - [ ] Gestion des conflits
 
 ### Fonctionnalités
-- [ ] Synchronisation automatique
+- [ ] Synchronisation automatique (paramètres implémentés)
 - [ ] Mode hors-ligne
 - [ ] File d'attente des modifications
 
@@ -37,6 +55,23 @@
 - [ ] Optimisation de la taille des données
 - [ ] Gestion de la bande passante
 - [ ] Tests de charge
+
+## Marketplace
+
+### Fonctionnalités 
+- [ ] Système de notation des modules
+- [ ] Commentaires et retours utilisateurs
+- [ ] Mises à jour automatiques
+
+### Sécurité
+- [ ] Vérification des signatures
+- [ ] Isolation des modules
+- [ ] Gestion des permissions
+
+### Analytics
+- [ ] Suivi des installations
+- [ ] Métriques d'utilisation
+- [ ] Rapports de crash
 
 ## Améliorations UX
 
