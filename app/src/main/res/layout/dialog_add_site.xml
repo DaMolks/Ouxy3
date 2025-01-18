@@ -6,12 +6,13 @@
     android:padding="16dp">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/siteNameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/field_site_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/siteName"
+            android:id="@+id/siteNameEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -19,13 +20,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/siteAddressLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/field_site_address">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/siteAddress"
+            android:id="@+id/siteAddressEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPostalAddress" />
@@ -39,41 +41,34 @@
         android:hint="@string/field_contact_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/contactName"
+            android:id="@+id/clientNameEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/field_contact_phone">
+        android:layout_marginTop="16dp"
+        android:gravity="end"
+        android:orientation="horizontal">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/contactPhone"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="phone" />
+            android:layout_marginEnd="8dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:text="@string/action_cancel" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/field_notes">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/notes"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="top"
-            android:inputType="textMultiLine"
-            android:lines="3" />
+            android:text="@string/action_add" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
 </LinearLayout>
