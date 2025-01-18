@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.lifecycleScope
 import com.damolks.ouxy3.R
 import com.damolks.ouxy3.core.session.SessionManager
@@ -42,7 +43,6 @@ class SplashActivity : AppCompatActivity() {
 
     private fun navigateToNextScreen() {
         lifecycleScope.launch {
-            // Délai minimum pour l'animation
             delay(1500)
 
             val intent = if (sessionManager.isOnboardingCompleted()) {
@@ -51,10 +51,14 @@ class SplashActivity : AppCompatActivity() {
                 Intent(this@SplashActivity, OnboardingActivity::class.java)
             }
 
-            startActivity(intent)
+            val options = ActivityOptionsCompat.makeCustomAnimation(
+                this@SplashActivity,
+                R.anim.fade_in,
+                R.anim.fade_out
+            )
+
+            startActivity(intent, options.toBundle())
             finish()
-            // Animation de transition
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
 }
