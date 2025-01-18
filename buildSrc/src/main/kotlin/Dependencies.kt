@@ -16,6 +16,7 @@ object Versions {
     const val lifecycle = "2.7.0"
     const val navigation = "2.7.6"
     const val room = "2.6.1"
+    const val splashscreen = "1.0.1"
 
     // UI
     const val material = "1.11.0"
@@ -44,6 +45,7 @@ object Deps {
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val activity = "androidx.activity:activity-ktx:${Versions.activity}"
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
+    const val splashscreen = "androidx.core:core-splashscreen:${Versions.splashscreen}"
 
     // Lifecycle
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
