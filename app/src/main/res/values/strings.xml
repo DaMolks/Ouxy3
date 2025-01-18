@@ -3,12 +3,37 @@
     <!-- App name -->
     <string name="app_name">Ouxy3</string>
 
-    <!-- Titres de la navigation -->
+    <!-- Navigation -->
     <string name="title_dashboard">Tableau de bord</string>
     <string name="title_reports">Rapports</string>
     <string name="title_sites">Sites</string>
     <string name="title_profile">Profil</string>
     
+    <!-- Profile Setup -->
+    <string name="profile_setup_title">Profil du technicien</string>
+    <string name="field_firstname">Prénom</string>
+    <string name="field_lastname">Nom</string>
+    <string name="field_matricule">Matricule</string>
+
+    <!-- Site Setup -->
+    <string name="sites_setup_title">Configuration des sites</string>
+    <string name="sites_setup_description">Ajoutez les sites sur lesquels vous intervenez</string>
+    <string name="button_add_site">Ajouter un site</string>
+    <string name="field_site_name">Nom du site</string>
+    <string name="field_site_code">Code du site</string>
+    <string name="field_site_address">Adresse</string>
+    <string name="field_client_name">Nom du client</string>
+
+    <!-- Signature -->
+    <string name="signature_title">Signature</string>
+    <string name="signature_description">Veuillez signer ci-dessous pour valider votre profil</string>
+    <string name="button_clear">Effacer</string>
+    
+    <!-- Common buttons -->
+    <string name="button_back">Retour</string>
+    <string name="button_next">Suivant</string>
+    <string name="button_finish">Terminer</string>
+
     <!-- Actions -->
     <string name="add_site">Ajouter un site</string>
 </resources>
