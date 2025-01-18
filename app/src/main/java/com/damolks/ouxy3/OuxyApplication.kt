@@ -1,6 +1,7 @@
 package com.damolks.ouxy3
 
 import android.app.Application
+import com.damolks.ouxy3.debug.di.debugModule
 import com.damolks.ouxy3.di.appModule
 import com.damolks.ouxy3.di.databaseModule
 import com.damolks.ouxy3.di.viewModelModule
@@ -21,7 +22,8 @@ class OuxyApplication : Application() {
                 listOf(
                     appModule,
                     databaseModule,
-                    viewModelModule
+                    viewModelModule,
+                    debugModule
                 )
             )
         }
