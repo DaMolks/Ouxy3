@@ -27,9 +27,8 @@ class SitesAdapter : ListAdapter<Site, SitesAdapter.SiteViewHolder>(SiteDiffCall
         fun bind(site: Site) {
             binding.apply {
                 siteName.text = site.name
-                siteCode.text = site.code
                 siteAddress.text = site.address
-                clientName.text = site.clientName
+                clientName.text = site.contactName ?: "Pas de contact spécifié"
             }
         }
     }
