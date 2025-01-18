@@ -33,7 +33,6 @@ class SiteAdapter(
                 siteName.text = site.name
                 siteAddress.text = site.address
                 clientName.text = site.contactName
-                deleteButton.setOnClickListener { onDeleteClick(site) }
             }
         }
     }
