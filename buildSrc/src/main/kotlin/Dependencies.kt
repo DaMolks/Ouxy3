@@ -1,7 +1,7 @@
 object Versions {
     // SDK et outils
     const val compileSdk = 34
-    const val minSdk = 23
+    const val minSdk = 26  // Mis à jour pour supporter adaptive icons
     const val targetSdk = 34
 
     // Kotlin
