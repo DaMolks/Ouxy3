@@ -115,4 +115,6 @@
 
     <!-- Marketplace -->
     <string name="marketplace_categories_title">Catégories</string>
+    <string name="error_field_required">Ce champ est obligatoire</string>
+    <string name="error_signature_required">La signature est obligatoire</string>
 </resources>
