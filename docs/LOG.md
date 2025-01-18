@@ -1,5 +1,40 @@
 # Journal des Modifications
 
+## [18-01-2025] Implémentation de l'interface de debug
+
+### Contexte
+- Nécessité d'une interface visuelle pour le monitoring des modules
+- Besoin de visualiser les erreurs et les états des modules
+
+### Actions Réalisées
+- ✅ Création des layouts pour l'interface de debug
+  - Fragment principal avec ViewPager
+  - Liste des modules
+  - Liste des erreurs
+  - Items pour les états et les erreurs
+- ✅ Implémentation des adaptateurs
+  - ModuleStateAdapter pour l'affichage des états
+  - ErrorAdapter pour l'affichage des erreurs
+- ✅ Mise en place du système de navigation par tabs
+- ✅ Ajout des ressources nécessaires (couleurs, strings)
+
+### Impact
+- Interface de debug fonctionnelle et intuitive
+- Visualisation claire des états des modules
+- Suivi des erreurs avec catégorisation
+- Support du formatage des timestamps
+
+### Réflexions & Suggestions
+- 💡 Ajouter des filtres pour les erreurs
+- 💡 Implémenter un système de recherche
+- 💡 Ajouter des graphiques de performance
+- ⚠️ Prévoir une pagination pour les listes
+
+### Prochain focus
+1. Tests de l'interface de debug
+2. Ajout de fonctionnalités de filtrage
+3. Optimisations de performance
+
 ## [18-01-2025] Amélioration du système de monitoring des modules
 
 ### Contexte
@@ -35,37 +70,3 @@
 1. Tests du nouveau système de monitoring
 2. Intégration avec un outil d'analytics
 3. Interface de visualisation des erreurs
-
-## [18-01-2025] Correction des IDs du dialogue d'ajout de site
-
-### Contexte
-- Erreurs de compilation dues à des références non résolues dans SitesFragment.kt et AddSiteDialog.kt
-- Incohérence entre les IDs du layout et ceux utilisés dans le code
-
-### Actions Réalisées
-- ✅ Renommage des champs dans dialog_add_site.xml pour correspondre au code :
-  - siteNameEdit -> siteName
-  - siteAddressEdit -> siteAddress
-  - clientNameEdit -> contactName
-- ✅ Ajout des champs manquants :
-  - contactPhone
-  - notes
-- ✅ Mise à jour des références dans SitesFragment.kt et AddSiteDialog.kt
-- ✅ Correction de la gestion des champs vides (isNotBlank -> isNotEmpty)
-
-### Impact
-- Résolution des erreurs de compilation
-- Cohérence entre le layout et le code
-- Fonctionnalité complète du formulaire d'ajout de site
-- Amélioration de la robustesse de la validation des champs
-
-### Réflexions & Suggestions
-- 💡 Envisager d'ajouter une validation des champs plus complète
-- 💡 Ajouter des masks pour le numéro de téléphone
-- 💡 Implémenter une validation en temps réel
-- ⚠️ Penser à standardiser la gestion des champs vides dans toute l'app
-
-### Prochain focus
-1. Tests de l'interface de gestion des sites
-2. Validation des données saisies
-3. Améliorations UX du formulaire
