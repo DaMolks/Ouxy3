@@ -28,7 +28,11 @@
         <activity
             android:name=".ui.onboarding.OnboardingActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Ouxy3"
+            android:windowSoftInputMode="adjustPan" />
 
         <activity
             android:name=".ui.main.MainActivity"
