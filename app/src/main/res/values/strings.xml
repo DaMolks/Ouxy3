@@ -14,6 +14,8 @@
     <string name="field_firstname">Prénom</string>
     <string name="field_lastname">Nom</string>
     <string name="field_matricule">Matricule</string>
+    <string name="field_sector">Secteur</string>
+    <string name="field_team_leader">Chef d'équipe</string>
 
     <!-- Site Setup -->
     <string name="sites_setup_title">Configuration des sites</string>
@@ -34,6 +36,12 @@
     <string name="button_next">Suivant</string>
     <string name="button_finish">Terminer</string>
 
+    <!-- Menu items -->
+    <string name="menu_home">Accueil</string>
+    <string name="menu_sites">Sites</string>
+    <string name="menu_marketplace">Marketplace</string>
+    <string name="menu_settings">Paramètres</string>
+    
     <!-- Actions -->
     <string name="add_site">Ajouter un site</string>
 </resources>
