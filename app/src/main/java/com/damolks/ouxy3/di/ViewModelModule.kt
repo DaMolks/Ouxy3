@@ -1,6 +1,7 @@
 package com.damolks.ouxy3.di
 
 import com.damolks.ouxy3.ui.main.home.HomeViewModel
+import com.damolks.ouxy3.ui.main.sites.SitesViewModel
 import com.damolks.ouxy3.ui.onboarding.signature.SignatureViewModel
 import com.damolks.ouxy3.ui.onboarding.sites.SitesSetupViewModel
 import com.damolks.ouxy3.ui.onboarding.technician.TechnicianProfileViewModel
@@ -15,4 +16,5 @@ val viewModelModule = module {
 
     // Main ViewModels
     viewModel { HomeViewModel(get(), get()) }
+    viewModel { SitesViewModel(get()) }
 }
