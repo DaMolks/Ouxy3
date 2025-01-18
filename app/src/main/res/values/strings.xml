@@ -2,7 +2,7 @@
 <resources>
     <!-- App name -->
     <string name="app_name">Ouxy3</string>
-
+    
     <!-- Navigation -->
     <string name="title_dashboard">Tableau de bord</string>
     <string name="title_reports">Rapports</string>
@@ -16,17 +16,16 @@
     <string name="field_matricule">Matricule</string>
     <string name="field_sector">Secteur</string>
     <string name="field_team_leader">Chef d\'équipe</string>
-
+    
     <!-- Site Setup -->
     <string name="sites_setup_title">Configuration des sites</string>
     <string name="sites_setup_description">Ajoutez les sites sur lesquels vous intervenez</string>
     <string name="button_add_site">Ajouter un site</string>
-    <string name="field_site_name">Nom du site</string>
     <string name="field_site_code">Code du site</string>
     <string name="field_site_address">Adresse</string>
     <string name="field_client_name">Nom du client</string>
     <string name="site_added">Site ajouté avec succès</string>
-
+    
     <!-- Signature -->
     <string name="signature_title">Signature</string>
     <string name="signature_description">Veuillez signer ci-dessous pour valider votre profil</string>
@@ -36,7 +35,7 @@
     <string name="button_back">Retour</string>
     <string name="button_next">Suivant</string>
     <string name="button_finish">Terminer</string>
-
+    
     <!-- Menu items -->
     <string name="menu_home">Accueil</string>
     <string name="menu_sites">Sites</string>
@@ -45,34 +44,32 @@
     
     <!-- Actions -->
     <string name="add_site">Ajouter un site</string>
-
+    
     <!-- Error messages -->
     <string name="error_field_required">Ce champ est obligatoire</string>
     <string name="error_signature_required">La signature est obligatoire</string>
-
-    <!-- Common buttons -->
+    
+    <!-- Action buttons -->
     <string name="button_delete">Supprimer</string>
     <string name="button_edit">Modifier</string>
-
+    
     <!-- Site form fields -->
-    <string name="field_site_name">Nom du site</string>
-    <string name="field_site_address">Adresse</string>
     <string name="field_contact_name">Nom du contact</string>
     <string name="field_contact_phone">Téléphone du contact</string>
     <string name="field_notes">Notes</string>
-
+    
     <!-- Dialog titles -->
     <string name="dialog_add_site">Ajouter un site</string>
     <string name="dialog_edit_site">Modifier le site</string>
     <string name="dialog_delete_site">Supprimer le site</string>
     <string name="dialog_delete_site_message">Voulez-vous vraiment supprimer le site %1$s ?</string>
-
+    
     <!-- Actions -->
     <string name="action_add">Ajouter</string>
     <string name="action_edit">Modifier</string>
     <string name="action_delete">Supprimer</string>
     <string name="action_cancel">Annuler</string>
-
+    
     <!-- Messages -->
     <string name="msg_site_added">Site ajouté avec succès</string>
     <string name="msg_site_updated">Site mis à jour avec succès</string>
@@ -80,5 +77,4 @@
     <string name="msg_error_adding_site">Erreur lors de l\'ajout du site</string>
     <string name="msg_error_updating_site">Erreur lors de la mise à jour du site</string>
     <string name="msg_error_deleting_site">Erreur lors de la suppression du site</string>
-    
 </resources>
