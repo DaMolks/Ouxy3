@@ -9,6 +9,7 @@ import org.koin.dsl.module
 val databaseModule = module {
     single { provideDatabase(androidContext()) }
     single { provideMarketplaceDao(get()) }
+    single { provideTechnicianDao(get()) }
 }
 
 private fun provideDatabase(context: Context) =
@@ -19,3 +20,5 @@ private fun provideDatabase(context: Context) =
     ).build()
 
 private fun provideMarketplaceDao(database: OuxyDatabase) = database.marketplaceDao()
+
+private fun provideTechnicianDao(database: OuxyDatabase) = database.technicianDao()
