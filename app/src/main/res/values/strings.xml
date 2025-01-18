@@ -15,7 +15,7 @@
     <string name="field_lastname">Nom</string>
     <string name="field_matricule">Matricule</string>
     <string name="field_sector">Secteur</string>
-    <string name="field_team_leader">Chef d'équipe</string>
+    <string name="field_team_leader">Chef d\'équipe</string>
 
     <!-- Site Setup -->
     <string name="sites_setup_title">Configuration des sites</string>
