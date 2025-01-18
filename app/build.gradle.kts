@@ -70,6 +70,7 @@ dependencies {
     implementation(Deps.splashscreen)
     implementation(Deps.security)
     implementation(Deps.preference)
+    implementation(Deps.dataStore)
 
     // Lifecycle
     implementation(Deps.lifecycleViewModel)
