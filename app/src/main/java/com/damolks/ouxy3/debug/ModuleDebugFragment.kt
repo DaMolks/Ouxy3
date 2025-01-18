@@ -21,9 +21,11 @@ class ModuleDebugFragment : Fragment() {
             }
         }
 
-        moduleMonitor.errors.observe(viewLifecycleOwner) { errors ->
-            // Update error list
-            showErrors(errors)
+        viewLifecycleOwner.lifecycleScope.launch {
+            moduleMonitor.errors.collect { errors ->
+                // Update error list
+                showErrors(errors)
+            }
         }
     }
 
