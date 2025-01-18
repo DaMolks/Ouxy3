@@ -69,6 +69,7 @@ dependencies {
     implementation(Deps.fragment)
     implementation(Deps.splashscreen)
     implementation(Deps.security)
+    implementation(Deps.preference)
 
     // Lifecycle
     implementation(Deps.lifecycleViewModel)
