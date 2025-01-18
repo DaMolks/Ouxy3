@@ -1,72 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="@string/pref_category_profile">
+    <PreferenceCategory android:title="@string/pref_category_profile">
         <Preference
-            app:key="edit_profile"
-            app:title="@string/pref_edit_profile"
-            app:summary="@string/pref_edit_profile_summary"
-            app:icon="@drawable/ic_account" />
+            android:key="edit_profile"
+            android:title="@string/pref_edit_profile"
+            android:summary="@string/pref_edit_profile_summary" />
 
         <Preference
-            app:key="edit_signature"
-            app:title="@string/pref_edit_signature"
-            app:summary="@string/pref_edit_signature_summary"
-            app:icon="@drawable/ic_signature" />
+            android:key="edit_signature"
+            android:title="@string/pref_edit_signature"
+            android:summary="@string/pref_edit_signature_summary" />
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/pref_category_sync">
-        <SwitchPreferenceCompat
-            app:key="auto_sync"
-            app:title="@string/pref_auto_sync"
-            app:summary="@string/pref_auto_sync_summary"
-            app:defaultValue="true"
-            app:icon="@drawable/ic_sync" />
+    <PreferenceCategory android:title="@string/pref_category_sync">
+        <SwitchPreference
+            android:key="auto_sync"
+            android:title="@string/pref_auto_sync"
+            android:summary="@string/pref_auto_sync_summary"
+            android:defaultValue="true" />
 
         <ListPreference
-            app:key="sync_frequency"
-            app:title="@string/pref_sync_frequency"
-            app:entries="@array/sync_frequency_entries"
-            app:entryValues="@array/sync_frequency_values"
-            app:defaultValue="60"
-            app:useSimpleSummaryProvider="true"
-            app:icon="@drawable/ic_time" />
+            android:key="sync_frequency"
+            android:title="@string/pref_sync_frequency"
+            android:entries="@array/sync_frequency_entries"
+            android:entryValues="@array/sync_frequency_values"
+            android:defaultValue="60"
+            android:summary="%s" />
 
         <Preference
-            app:key="sync_now"
-            app:title="@string/pref_sync_now"
-            app:summary="@string/pref_sync_now_summary"
-            app:icon="@drawable/ic_sync_now" />
+            android:key="sync_now"
+            android:title="@string/pref_sync_now"
+            android:summary="@string/pref_sync_now_summary" />
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/pref_category_data">
-        <SwitchPreferenceCompat
-            app:key="offline_mode"
-            app:title="@string/pref_offline_mode"
-            app:summary="@string/pref_offline_mode_summary"
-            app:defaultValue="false"
-            app:icon="@drawable/ic_offline" />
+    <PreferenceCategory android:title="@string/pref_category_data">
+        <SwitchPreference
+            android:key="offline_mode"
+            android:title="@string/pref_offline_mode"
+            android:summary="@string/pref_offline_mode_summary"
+            android:defaultValue="false" />
 
         <Preference
-            app:key="clear_cache"
-            app:title="@string/pref_clear_cache"
-            app:summary="@string/pref_clear_cache_summary"
-            app:icon="@drawable/ic_delete" />
+            android:key="clear_cache"
+            android:title="@string/pref_clear_cache"
+            android:summary="@string/pref_clear_cache_summary" />
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/pref_category_app">
+    <PreferenceCategory android:title="@string/pref_category_app">
         <Preference
-            app:key="debug_mode"
-            app:title="@string/pref_debug_mode"
-            app:summary="@string/pref_debug_mode_summary"
-            app:icon="@drawable/ic_debug" />
+            android:key="debug_mode"
+            android:title="@string/pref_debug_mode"
+            android:summary="@string/pref_debug_mode_summary" />
 
         <Preference
-            app:key="app_version"
-            app:title="@string/pref_app_version"
-            app:summary="1.0.0"
-            app:enabled="false"
-            app:icon="@drawable/ic_info" />
+            android:key="app_version"
+            android:title="@string/pref_app_version"
+            android:summary="1.0.0"
+            android:enabled="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>
