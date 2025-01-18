@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/pref_category_profile">
+        <Preference
+            app:key="edit_profile"
+            app:title="@string/pref_edit_profile"
+            app:summary="@string/pref_edit_profile_summary"
+            app:icon="@drawable/ic_account" />
+
+        <Preference
+            app:key="edit_signature"
+            app:title="@string/pref_edit_signature"
+            app:summary="@string/pref_edit_signature_summary"
+            app:icon="@drawable/ic_signature" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_category_sync">
+        <SwitchPreferenceCompat
+            app:key="auto_sync"
+            app:title="@string/pref_auto_sync"
+            app:summary="@string/pref_auto_sync_summary"
+            app:defaultValue="true"
+            app:icon="@drawable/ic_sync" />
+
+        <ListPreference
+            app:key="sync_frequency"
+            app:title="@string/pref_sync_frequency"
+            app:entries="@array/sync_frequency_entries"
+            app:entryValues="@array/sync_frequency_values"
+            app:defaultValue="60"
+            app:useSimpleSummaryProvider="true"
+            app:icon="@drawable/ic_time" />
+
+        <Preference
+            app:key="sync_now"
+            app:title="@string/pref_sync_now"
+            app:summary="@string/pref_sync_now_summary"
+            app:icon="@drawable/ic_sync_now" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_category_data">
+        <SwitchPreferenceCompat
+            app:key="offline_mode"
+            app:title="@string/pref_offline_mode"
+            app:summary="@string/pref_offline_mode_summary"
+            app:defaultValue="false"
+            app:icon="@drawable/ic_offline" />
+
+        <Preference
+            app:key="clear_cache"
+            app:title="@string/pref_clear_cache"
+            app:summary="@string/pref_clear_cache_summary"
+            app:icon="@drawable/ic_delete" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_category_app">
+        <Preference
+            app:key="debug_mode"
+            app:title="@string/pref_debug_mode"
+            app:summary="@string/pref_debug_mode_summary"
+            app:icon="@drawable/ic_debug" />
+
+        <Preference
+            app:key="app_version"
+            app:title="@string/pref_app_version"
+            app:summary="1.0.0"
+            app:enabled="false"
+            app:icon="@drawable/ic_info" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
