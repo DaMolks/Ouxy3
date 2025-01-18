@@ -4,6 +4,7 @@ import android.app.Application
 import com.damolks.ouxy3.debug.di.debugModule
 import com.damolks.ouxy3.di.appModule
 import com.damolks.ouxy3.di.databaseModule
+import com.damolks.ouxy3.di.repositoryModule
 import com.damolks.ouxy3.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -22,6 +23,7 @@ class OuxyApplication : Application() {
                 listOf(
                     appModule,
                     databaseModule,
+                    repositoryModule,
                     viewModelModule,
                     debugModule
                 )
