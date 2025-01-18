@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Material 3 Colors -->
-    <color name="md_theme_primary">#006C46</color>
-    <color name="md_theme_onPrimary">#FFFFFF</color>
-    <color name="md_theme_primaryContainer">#85F7BE</color>
-    <color name="md_theme_onPrimaryContainer">#002112</color>
-
-    <color name="md_theme_secondary">#4D6357</color>
-    <color name="md_theme_onSecondary">#FFFFFF</color>
-    <color name="md_theme_secondaryContainer">#CFE9D9</color>
-    <color name="md_theme_onSecondaryContainer">#092016</color>
-
-    <color name="md_theme_error">#BA1A1A</color>
-    <color name="md_theme_onError">#FFFFFF</color>
-    <color name="md_theme_errorContainer">#FFDAD6</color>
-    <color name="md_theme_onErrorContainer">#410002</color>
-
-    <color name="md_theme_background">#FBFDF8</color>
-    <color name="md_theme_onBackground">#191C1A</color>
-    <color name="md_theme_surface">#FBFDF8</color>
-    <color name="md_theme_onSurface">#191C1A</color>
-
-    <color name="md_theme_outline">#707973</color>
-    <color name="md_theme_surfaceVariant">#DCE5DD</color>
-    <color name="md_theme_onSurfaceVariant">#404943</color>
+    <!-- App colors -->
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#FF4081</color>
+    
+    <!-- Debug chips colors -->
+    <color name="chip_success">#4CAF50</color>
+    <color name="chip_warning">#FFC107</color>
+    <color name="chip_error">#F44336</color>
+    <color name="chip_critical">#D32F2F</color>
+    <color name="chip_info">#2196F3</color>
+    <color name="chip_debug">#9E9E9E</color>
 </resources>
