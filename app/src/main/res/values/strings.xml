@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App name -->
+    <string name="app_name">Ouxy3</string>
+
     <!-- Titres de la navigation -->
     <string name="title_dashboard">Tableau de bord</string>
     <string name="title_reports">Rapports</string>
     <string name="title_sites">Sites</string>
     <string name="title_profile">Profil</string>
+    
+    <!-- Actions -->
+    <string name="add_site">Ajouter un site</string>
 </resources>
