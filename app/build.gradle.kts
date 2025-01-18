@@ -62,16 +62,12 @@ android {
 }
 
 dependencies {
-    // Kotlin
-    implementation(Deps.kotlin)
-    implementation(Deps.coroutinesCore)
-    implementation(Deps.coroutinesAndroid)
-
-    // AndroidX
+    // Core Android
     implementation(Deps.coreKtx)
     implementation(Deps.appcompat)
     implementation(Deps.activity)
     implementation(Deps.fragment)
+    implementation(Deps.splashscreen)
 
     // Lifecycle
     implementation(Deps.lifecycleViewModel)
@@ -81,33 +77,37 @@ dependencies {
     implementation(Deps.navigationFragment)
     implementation(Deps.navigationUi)
 
-    // Room
-    implementation(Deps.roomRuntime)
-    implementation(Deps.roomKtx)
-    kapt(Deps.roomCompiler)
-
     // UI
     implementation(Deps.material)
     implementation(Deps.constraintLayout)
     implementation(Deps.swipeRefresh)
     implementation(Deps.lottie)
 
+    // Room
+    implementation(Deps.roomRuntime)
+    implementation(Deps.roomKtx)
+    kapt(Deps.roomCompiler)
+
     // Koin
     implementation(Deps.koinCore)
     implementation(Deps.koinAndroid)
 
-    // Tests unitaires
+    // Kotlin
+    implementation(Deps.kotlin)
+    implementation(Deps.coroutinesCore)
+    implementation(Deps.coroutinesAndroid)
+
+    // Tests
     testImplementation(Deps.junit)
     testImplementation(Deps.mockk)
     testImplementation(Deps.coroutinesTest)
 
-    // Tests d'intégration
     androidTestImplementation(Deps.androidxTestCore)
     androidTestImplementation(Deps.androidxTestRunner)
     androidTestImplementation(Deps.androidxTestRules)
     androidTestImplementation(Deps.espressoCore)
     androidTestImplementation(Deps.mockkAndroid)
 
-    // Desugar pour java.time
+    // Desugar
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }
