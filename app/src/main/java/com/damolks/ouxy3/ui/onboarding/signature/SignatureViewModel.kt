@@ -20,25 +20,19 @@ class SignatureViewModel(
     private val _events = MutableLiveData<SignatureEvent?>()
     val events: LiveData<SignatureEvent?> = _events
 
-    fun saveSignature(bitmap: Bitmap, technicianId: Long, filesDir: File) {
+    fun saveSignature(bitmap: Bitmap, filesDir: File) {
         viewModelScope.launch {
             try {
                 _state.value = SignatureState.Loading
 
                 // Créer le dossier signatures s'il n'existe pas
                 val signatureDir = File(filesDir, "signatures").apply { mkdirs() }
-                val signatureFile = File(signatureDir, "signature_$technicianId.png")
+                val signatureFile = File(signatureDir, "signature_temp.png")
 
                 // Sauvegarder le bitmap
                 FileOutputStream(signatureFile).use { out ->
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
                 }
-
-                // Mettre à jour le technicien
-                technicianRepository.updateTechnicianSignature(
-                    technicianId,
-                    signatureFile.absolutePath
-                )
 
                 _events.value = SignatureEvent.NavigateToSites
             } catch (e: Exception) {
