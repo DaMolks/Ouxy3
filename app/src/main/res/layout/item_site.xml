@@ -20,14 +20,6 @@
             tools:text="Nom du site" />
 
         <TextView
-            android:id="@+id/site_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textAppearance="?attr/textAppearanceBody1"
-            tools:text="Code du site" />
-
-        <TextView
             android:id="@+id/site_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,9 +31,9 @@
             android:id="@+id/client_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textAppearance="?attr/textAppearanceBody2"
-            tools:text="Nom du client" />
+            android:layout_marginTop="8dp"
+            android:textAppearance="?attr/textAppearanceBody1"
+            tools:text="Nom du contact" />
 
     </LinearLayout>
 
