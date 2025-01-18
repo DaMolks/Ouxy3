@@ -19,6 +19,7 @@ object Versions {
     const val splashscreen = "1.0.1"
     const val security = "1.1.0-alpha06"
     const val preference = "1.2.1"
+    const val dataStore = "1.0.0"
 
     // UI
     const val material = "1.11.0"
@@ -50,6 +51,7 @@ object Deps {
     const val splashscreen = "androidx.core:core-splashscreen:${Versions.splashscreen}"
     const val security = "androidx.security:security-crypto:${Versions.security}"
     const val preference = "androidx.preference:preference-ktx:${Versions.preference}"
+    const val dataStore = "androidx.datastore:datastore-preferences:${Versions.dataStore}"
 
     // Lifecycle
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
