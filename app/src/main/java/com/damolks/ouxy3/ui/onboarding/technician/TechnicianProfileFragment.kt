@@ -38,7 +38,6 @@ class TechnicianProfileFragment : Fragment() {
 
     private fun setupFormListeners() {
         with(binding) {
-            // Mettre à jour le state du formulaire à chaque changement
             firstNameEdit.addTextChangedListener { updateFormState() }
             lastNameEdit.addTextChangedListener { updateFormState() }
             matriculeEdit.addTextChangedListener { updateFormState() }
