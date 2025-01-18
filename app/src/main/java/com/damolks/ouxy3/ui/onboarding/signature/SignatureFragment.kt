@@ -41,7 +41,7 @@ class SignatureFragment : Fragment() {
             binding.nextButton.isEnabled = false
         }
 
-        binding.signaturePad.setOnTouchListener { _, event ->
+        binding.signaturePad.setOnTouchListener { _, _ ->
             binding.nextButton.isEnabled = true
             false
         }
