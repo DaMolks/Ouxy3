@@ -1,5 +1,42 @@
 # Journal des Modifications
 
+## [18-01-2025] Ajout des Settings et Marketplace
+
+### Contexte
+- Nécessité d'implémenter les paramètres de l'application
+- Besoin d'un système de gestion des modules via un marketplace
+
+### Actions Réalisées
+- ✅ Implémentation du SettingsFragment
+  - Configuration des préférences utilisateur
+  - Gestion des catégories de paramètres
+  - Intégration des icônes Material Design
+- ✅ Implémentation du MarketplaceFragment
+  - Système de catégories
+  - Gestion des états des modules
+  - Interface d'installation des modules
+- ✅ Ajout des ressources
+  - Icônes vectorielles
+  - Chaînes de caractères localisées
+  - Mise à jour des préférences
+
+### Impact
+- Interface de paramétrage complète
+- Système de gestion des modules fonctionnel
+- Amélioration de l'expérience utilisateur
+- Interface cohérente avec le Material Design
+
+### Réflexions & Suggestions
+- 💡 Ajouter la synchronisation des préférences
+- 💡 Implémenter la recherche dans le marketplace
+- 💡 Ajouter des statistiques d'utilisation
+- ⚠️ Prévoir la gestion des mises à jour des modules
+
+### Prochain focus
+1. Tests des paramètres
+2. Système de backup des préférences
+3. Analytics du marketplace
+
 ## [18-01-2025] Implémentation de l'interface de debug
 
 ### Contexte
