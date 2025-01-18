@@ -25,6 +25,7 @@
     <string name="field_site_code">Code du site</string>
     <string name="field_site_address">Adresse</string>
     <string name="field_client_name">Nom du client</string>
+    <string name="site_added">Site ajouté avec succès</string>
 
     <!-- Signature -->
     <string name="signature_title">Signature</string>
@@ -44,4 +45,8 @@
     
     <!-- Actions -->
     <string name="add_site">Ajouter un site</string>
+
+    <!-- Error messages -->
+    <string name="error_field_required">Ce champ est obligatoire</string>
+    <string name="error_signature_required">La signature est obligatoire</string>
 </resources>
