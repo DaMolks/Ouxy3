@@ -54,7 +54,6 @@ class SignaturePad @JvmOverloads constructor(
                 val dy = Math.abs(eventY - currentY)
 
                 if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
-                    // Utilisation de quadTo pour un lissage de Bézier
                     path.quadTo(
                         currentX,
                         currentY,
@@ -64,7 +63,6 @@ class SignaturePad @JvmOverloads constructor(
                     currentX = eventX
                     currentY = eventY
 
-                    // Mise à jour de la zone sale pour optimiser le rendu
                     dirtyRect.left = currentX.coerceAtMost(eventX) - HALF_STROKE_WIDTH
                     dirtyRect.right = currentX.coerceAtLeast(eventX) + HALF_STROKE_WIDTH
                     dirtyRect.top = currentY.coerceAtMost(eventY) - HALF_STROKE_WIDTH
