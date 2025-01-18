@@ -5,6 +5,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import androidx.core.graphics.withSave
 
 class SignaturePad @JvmOverloads constructor(
     context: Context,
@@ -68,10 +69,12 @@ class SignaturePad @JvmOverloads constructor(
                     dirtyRect.top = currentY.coerceAtMost(eventY) - HALF_STROKE_WIDTH
                     dirtyRect.bottom = currentY.coerceAtLeast(eventY) + HALF_STROKE_WIDTH
 
-                    invalidate(dirtyRect.left.toInt(),
+                    postInvalidateOnAnimation(
+                        dirtyRect.left.toInt(),
                         dirtyRect.top.toInt(),
                         dirtyRect.right.toInt(),
-                        dirtyRect.bottom.toInt())
+                        dirtyRect.bottom.toInt()
+                    )
                 }
             }
             MotionEvent.ACTION_UP -> {
@@ -86,7 +89,7 @@ class SignaturePad @JvmOverloads constructor(
         paths.clear()
         path = Path()
         paths.add(path)
-        invalidate()
+        postInvalidateOnAnimation()
     }
 
     fun isEmpty(): Boolean = paths.size <= 1
@@ -95,7 +98,9 @@ class SignaturePad @JvmOverloads constructor(
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         canvas.drawColor(Color.WHITE)
-        draw(canvas)
+        canvas.withSave {
+            draw(this)
+        }
         return bitmap
     }
 
