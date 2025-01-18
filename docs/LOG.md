@@ -1,34 +1,36 @@
 # Journal des Modifications
 
-## [18-01-2025] Mise à jour et Corrections
+## [18-01-2025] Amélioration du système de monitoring des modules
 
 ### Contexte
-- Développement initial de l'application
-- Problèmes identifiés dans l'interface utilisateur et la navigation
+- Nécessité d'améliorer le suivi et le debug des modules
+- Besoin d'une meilleure gestion des erreurs
+- Incohérence dans l'utilisation de LiveData et Flow
 
 ### Actions Réalisées
-- ✅ Déplacement du compteur de sites sous le nom du technicien
-- ✅ Retrait du compteur de rapports (module futur)
-- ✅ Ajout de la gestion complète des sites (CRUD)
-- ✅ Correction des identifiants dans le dialogue d'ajout de site
-- ✅ Ajout des messages d'erreur manquants
-- ✅ Optimisation des ressources strings
+- ✅ Migration complète vers Flow pour la cohérence
+- ✅ Ajout d'une limite paramétrable du nombre d'erreurs stockées
+- ✅ Implémentation d'un système de catégorisation des erreurs
+- ✅ Ajout de timestamps pour un meilleur suivi
+- ✅ Ajout de méthodes de filtrage des erreurs
+- ✅ Amélioration de la gestion d'état des modules
 
 ### Impact
-- Amélioration de la cohérence de l'interface
-- Meilleure expérience utilisateur pour la gestion des sites
-- Réduction de la dette technique
+- Meilleure traçabilité des erreurs et des états des modules
+- Optimisation de la mémoire avec la limitation des erreurs stockées
+- Facilitation du debug avec la catégorisation des erreurs
+- API plus cohérente et moderne avec Flow
 
 ### Réflexions & Suggestions
-- 💡 Envisager l'ajout de filtres pour les sites
-- 💡 Ajouter un système de recherche
-- 💡 Prévoir une catégorisation des sites
-- ⚠️ Attention à la gestion de la mémoire avec beaucoup de sites
+- 💡 Envisager l'ajout d'un système de persistance des logs
+- 💡 Implémenter un système d'export des erreurs
+- 💡 Ajouter des métriques de performance
+- ⚠️ Surveiller l'impact mémoire du stockage des timestamps
 
 ### Prochain focus
-1. Module de rapports
-2. Système de synchronisation
-3. Tests de performance
+1. Tests du nouveau système de monitoring
+2. Intégration avec un outil d'analytics
+3. Interface de visualisation des erreurs
 
 ## [18-01-2025] Correction des IDs du dialogue d'ajout de site
 
