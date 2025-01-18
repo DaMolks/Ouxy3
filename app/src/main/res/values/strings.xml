@@ -3,6 +3,7 @@
     <string name="app_name">Ouxy</string>
     
     <!-- Menu -->
+    <string name="menu_home">Accueil</string>
     <string name="menu_sites">Sites</string>
     <string name="menu_marketplace">Marketplace</string>
     <string name="menu_settings">Réglages</string>
@@ -14,7 +15,7 @@
     <string name="field_lastname">Nom</string>
     <string name="field_sector">Secteur</string>
     <string name="field_matricule">Matricule</string>
-    <string name="field_team_leader">Chef d\'équipe</string>
+    <string name="field_team_leader">Chef d'équipe</string>
     <string name="button_next">Suivant</string>
     <string name="button_back">Retour</string>
     <string name="button_finish">Terminer</string>
@@ -27,7 +28,7 @@
 
     <!-- Sites Setup -->
     <string name="sites_setup_title">Configuration des sites</string>
-    <string name="sites_setup_description">Ajoutez vos sites d\'intervention</string>
+    <string name="sites_setup_description">Ajoutez vos sites d'intervention</string>
     <string name="field_site_name">Nom du site</string>
     <string name="field_site_address">Adresse</string>
     <string name="field_site_code">Code ID site</string>
