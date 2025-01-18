@@ -1,41 +1,37 @@
 # Journal des Modifications
 
-## [18-01-2025] Corrections et Ajouts
+## [18-01-2025] Ajout de l'injection de dépendances
 
 ### Contexte
-- Erreurs de compilation sur les dépendances Preference
-- Manque des strings de validation
-- MarketplaceModuleAdapter manquant
+- Erreur d'injection du MarketplaceViewModel
+- Modules Koin manquants
 
 ### Actions Réalisées
-- ✅ Ajout de la dépendance preference-ktx
-  - Configuration dans build.gradle.kts
-  - Mise à jour des Versions et Deps
-- ✅ Implémentation du MarketplaceModuleAdapter
-  - Création de l'adaptateur
-  - Ajout du layout item_marketplace_module
-- ✅ Ajout des strings manquantes pour la validation
-  - error_field_required
-  - error_signature_required
+- ✅ Ajout du module ViewModel
+  - Injection du MarketplaceViewModel
+  - Injection du SettingsViewModel
+- ✅ Configuration du module Repository
+  - MarketplaceRepository
+- ✅ Mise à jour du DatabaseModule
+  - Ajout du MarketplaceDao
+- ✅ Intégration dans l'application
+  - Ajout de repositoryModule dans Koin
 
 ### Impact
-- Correction des erreurs de compilation
-- Support complet des préférences
-- Interface du marketplace fonctionnelle
-- Validation des champs améliorée
+- Résolution des erreurs d'injection
+- Structure d'injection complète
+- Support de la persistance marketplace
 
 ### Réflexions & Suggestions
-- 💡 Ajouter plus de validations de champs
-- 💡 Enrichir les messages d'erreur
-- 💡 Améliorer le style des modules marketplace
+- 💡 Ajouter des logs pour le monitoring des injections
+- 💡 Implémenter des tests d'injection
+- ⚠️ Penser à la migration de base de données
 
 ### Prochain focus
-1. Tests des validations
-2. Amélioration des retours utilisateur
-3. Enrichissement des fonctionnalités marketplace
+1. Tests des injections
+2. Tests de la persistance
+3. Intégration des nouveaux modules
 
-## [18-01-2025] Ajout des Settings et Marketplace
+## [18-01-2025] Corrections et Ajouts
 
-### Contexte
-...
-[Le reste du fichier LOG.md reste identique]
+[Le reste du LOG.md reste identique]
