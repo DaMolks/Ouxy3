@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.damolks.ouxy3.ui.main.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_reports"
+        android:name="com.damolks.ouxy3.ui.main.reports.ReportsFragment"
+        android:label="@string/title_reports" />
+
+    <fragment
+        android:id="@+id/navigation_sites"
+        android:name="com.damolks.ouxy3.ui.main.sites.SitesFragment"
+        android:label="@string/title_sites" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.damolks.ouxy3.ui.main.profile.ProfileFragment"
+        android:label="@string/title_profile" />
+
+</navigation>
