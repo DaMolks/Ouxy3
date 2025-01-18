@@ -1,16 +1,21 @@
 package com.damolks.ouxy3.di
 
-import com.damolks.ouxy3.data.database.OuxyDatabase
-import com.damolks.ouxy3.data.repository.SiteRepository
-import com.damolks.ouxy3.data.repository.TechnicianRepository
+import android.content.Context
+import androidx.room.Room
+import com.damolks.ouxy3.data.db.OuxyDatabase
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val databaseModule = module {
-    single { OuxyDatabase.getInstance(androidContext()) }
-    single { get<OuxyDatabase>().technicianDao() }
-    single { get<OuxyDatabase>().siteDao() }
-    
-    single { TechnicianRepository(get()) }
-    single { SiteRepository(get()) }
+    single { provideDatabase(androidContext()) }
+    single { provideMarketplaceDao(get()) }
 }
+
+private fun provideDatabase(context: Context) =
+    Room.databaseBuilder(
+        context.applicationContext,
+        OuxyDatabase::class.java,
+        "ouxy.db"
+    ).build()
+
+private fun provideMarketplaceDao(database: OuxyDatabase) = database.marketplaceDao()
