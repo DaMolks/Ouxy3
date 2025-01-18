@@ -46,16 +46,17 @@ class SignatureFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            // TODO: Récupérer l'ID du technicien via navigation args
-            val technicianId = 1L // Temporaire
             viewModel.saveSignature(
                 bitmap = binding.signaturePad.toBitmap(),
-                technicianId = technicianId,
                 filesDir = requireContext().filesDir
             )
         }
 
         updateNextButtonState()
+    }
+
+    private fun updateNextButtonState() {
+        binding.nextButton.isEnabled = !binding.signaturePad.isEmpty()
     }
 
     private fun observeViewModel() {
@@ -86,10 +87,6 @@ class SignatureFragment : Fragment() {
                 null -> {}
             }
         }
-    }
-
-    private fun updateNextButtonState() {
-        binding.nextButton.isEnabled = !binding.signaturePad.isEmpty()
     }
 
     override fun onDestroyView() {
