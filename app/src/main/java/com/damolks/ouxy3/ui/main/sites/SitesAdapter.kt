@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.damolks.ouxy3.data.model.Site
 import com.damolks.ouxy3.databinding.ItemSiteBinding
 
-class SitesAdapter : ListAdapter<Site, SitesAdapter.SiteViewHolder>(SiteDiffCallback()) {
+class SitesAdapter(
+    private val onSiteClick: (Site) -> Unit,
+    private val onDeleteClick: (Site) -> Unit
+) : ListAdapter<Site, SitesAdapter.SiteViewHolder>(SiteDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SiteViewHolder {
         val binding = ItemSiteBinding.inflate(
@@ -23,12 +26,30 @@ class SitesAdapter : ListAdapter<Site, SitesAdapter.SiteViewHolder>(SiteDiffCall
         holder.bind(getItem(position))
     }
 
-    class SiteViewHolder(private val binding: ItemSiteBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class SiteViewHolder(private val binding: ItemSiteBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onSiteClick(getItem(position))
+                }
+            }
+
+            binding.deleteButton.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onDeleteClick(getItem(position))
+                }
+            }
+        }
+
         fun bind(site: Site) {
-            binding.apply {
+            with(binding) {
                 siteName.text = site.name
                 siteAddress.text = site.address
-                clientName.text = site.contactName ?: "Pas de contact spécifié"
+                clientName.text = site.contactName
             }
         }
     }
