@@ -18,6 +18,7 @@ object Versions {
     const val room = "2.6.1"
     const val splashscreen = "1.0.1"
     const val security = "1.1.0-alpha06"
+    const val preference = "1.2.1"
 
     // UI
     const val material = "1.11.0"
@@ -48,6 +49,7 @@ object Deps {
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
     const val splashscreen = "androidx.core:core-splashscreen:${Versions.splashscreen}"
     const val security = "androidx.security:security-crypto:${Versions.security}"
+    const val preference = "androidx.preference:preference-ktx:${Versions.preference}"
 
     // Lifecycle
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
