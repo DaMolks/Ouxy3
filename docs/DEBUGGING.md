@@ -1,84 +1,57 @@
 # Guide de Debugging Ouxy3
 
+## Problèmes Connus et Solutions
+
+### 1. Gestion des Sessions
+Problème : Utilisation incorrecte des nouvelles API de chiffrement
+Solution : 
+- Mise à jour vers les nouvelles API de sécurité
+- Ajout de gestion d'erreurs robuste
+- Documentation des exceptions possibles
+
+### 2. Interface Utilisateur
+Problème : Détection de signature et états des boutons
+Solution :
+- Refactoring du SignaturePad
+- Amélioration de la gestion d'état
+- Tests de validation ajoutés
+
+### 3. Gestion des Modules
+Problème : Chargement et monitoring des modules
+Solution :
+- Nouveau système de monitoring
+- Interface de debug dédiée
+- Logging amélioré
+
 ## Outils de Debugging
 
-### Module Debug
-Le module de debug fournit :
-- Visualisation des événements EventBus en temps réel
-- État des modules (chargés/actifs/erreur)
-- Logs système filtrables
-- Métriques de performance
-
-### Points de Debug par Module
-
-#### Core Application
+### ModuleMonitor
 ```kotlin
-class CoreDebugger {
-    fun monitorEventBus()
-    fun checkModuleStates()
-    fun trackPerformance()
+val moduleMonitor = get<ModuleMonitor>()
+moduleMonitor.moduleStates.collect { states ->
+    // Monitoring des états
 }
 ```
-
-#### Modules Dynamiques
-```kotlin
-interface ModuleDebugger {
-    fun getModuleState(): ModuleState
-    fun getLogs(): Flow<LogEntry>
-    fun testConnectivity()
-}
-```
-
-## Stratégies de Debugging
-
-### 1. Problèmes de Communication
-- Surveillance EventBus
-- Validation format des événements
-- Vérification des permissions
-
-### 2. Problèmes de Performance
-- Profiling du chargement des modules
-- Analyse de la consommation mémoire
-- Tracking des opérations longues
-
-### 3. Problèmes de Données
-- Validation schéma base de données
-- Vérification intégrité des données
-- Test des migrations
-
-## Bonnes Pratiques
 
 ### Logs
-- Niveaux de log appropriés
-- Informations contextuelles
-- Rotation des logs
+```kotlin
+logger.debug("Module state", mapOf(
+    "moduleId" to id,
+    "state" to state,
+    "error" to error
+))
+```
 
-### Performance
-- Points de mesure stratégiques
-- Métriques clés
-- Seuils d'alerte
+## Processus de Vérification
 
-### Tests de Debug
-- Scénarios de test spécifiques
-- Reproduction de bugs
-- Validation des corrections
+1. Vérifier l'état des modules
+2. Consulter les logs d'erreur
+3. Tester les corrections
+4. Valider les changements
 
-## Procédures de Debug
+## Points d'Attention
 
-### 1. Problème de Module
-1. Vérifier état du module
-2. Examiner logs spécifiques
-3. Tester communication EventBus
-4. Valider cycle de vie
-
-### 2. Problème de Performance
-1. Collecter métriques
-2. Identifier goulots d'étranglement
-3. Analyser utilisation ressources
-4. Optimiser points critiques
-
-### 3. Problème de Données
-1. Vérifier schéma BDD
-2. Valider intégrité
-3. Tester migrations
-4. Corriger incohérences
+- Toujours vérifier la sécurité des sessions
+- Valider les transitions UI
+- Tester le chargement des modules
+- Documenter les corrections
