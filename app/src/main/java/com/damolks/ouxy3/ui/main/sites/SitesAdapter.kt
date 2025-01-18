@@ -31,14 +31,14 @@ class SitesAdapter(
 
         init {
             binding.root.setOnClickListener {
-                val position = bindingAdapterPosition
+                val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     onSiteClick(getItem(position))
                 }
             }
 
             binding.deleteButton.setOnClickListener {
-                val position = bindingAdapterPosition
+                val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     onDeleteClick(getItem(position))
                 }
