@@ -38,9 +38,9 @@ class AddSiteDialog : DialogFragment() {
         }
 
         binding.saveButton.setOnClickListener {
-            val name = binding.siteNameEdit.text.toString()
-            val address = binding.siteAddressEdit.text.toString()
-            val clientName = binding.clientNameEdit.text.toString()
+            val name = binding.siteName.text.toString()
+            val address = binding.siteAddress.text.toString()
+            val clientName = binding.contactName.text.toString()
 
             if (name.isBlank() || address.isBlank()) {
                 binding.siteNameLayout.error = if (name.isBlank()) "Requis" else null
@@ -51,7 +51,7 @@ class AddSiteDialog : DialogFragment() {
             onSiteAdded?.invoke(
                 name,
                 address,
-                clientName.takeIf { it.isNotBlank() }
+                clientName.takeIf { it.isNotEmpty() }
             )
             dismiss()
         }
