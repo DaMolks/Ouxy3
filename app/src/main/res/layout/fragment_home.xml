@@ -22,7 +22,7 @@
                 android:id="@+id/contentGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="welcomeCard,statsCard,actionsCard" />
+                app:constraint_referenced_ids="welcomeCard,actionsCard" />
 
             <!-- Groupe d'erreur -->
             <androidx.constraintlayout.widget.Group
@@ -55,40 +55,29 @@
                         android:textAppearance="@style/TextAppearance.Ouxy3.Title"
                         tools:text="John Doe" />
 
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/statsCard"
-                style="@style/Widget.Ouxy3.Card"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/welcomeCard">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/siteCount"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.Ouxy3.Title"
-                        android:textColor="?attr/colorPrimary"
-                        tools:text="12" />
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sites"
-                        android:textAppearance="@style/TextAppearance.Ouxy3.Body" />
+                        <TextView
+                            android:id="@+id/siteCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.Ouxy3.Subtitle"
+                            android:textColor="?attr/colorPrimary"
+                            tools:text="12" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="sites"
+                            android:textAppearance="@style/TextAppearance.Ouxy3.Body" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
