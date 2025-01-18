@@ -12,7 +12,7 @@
         android:hint="@string/field_site_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/siteNameEdit"
+            android:id="@+id/siteName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -27,7 +27,7 @@
         android:hint="@string/field_site_address">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/siteAddressEdit"
+            android:id="@+id/siteAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPostalAddress" />
@@ -41,10 +41,39 @@
         android:hint="@string/field_contact_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/clientNameEdit"
+            android:id="@+id/contactName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/field_contact_phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contactPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/field_notes">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="3" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
