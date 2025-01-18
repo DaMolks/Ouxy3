@@ -1,62 +1,79 @@
 # Roadmap Ouxy3
 
-## Version 1.0.0 (Version Actuelle)
+## Version 1.0.0 (Version Actuelle - MVP)
 
-### Architecture de Base
-- ✅ Architecture MVVM implémentée
+### Architecture de Base Implémentée
+- ✅ Architecture Modulaire MVVM
 - ✅ Injection de dépendances avec Koin
-- ✅ Base de données Room configurée
-- ✅ Navigation Component implémenté
+- ✅ Base de données Room
+- ✅ Session manangement sécurisé
+- ✅ EventBus pour la communication
+- ✅ Navigation Component
 
 ### Fonctionnalités Core
-- ✅ Gestion des profils techniciens
+- ✅ Configuration projet 
+- ✅ Splash Screen
+- ✅ Material Design 3
+- ✅ Onboarding technicien
 - ✅ Capture de signature
 - ✅ Configuration des sites
-- ✅ Interface de navigation
 
-### Tests
-- ✅ Tests unitaires
-- ✅ Tests d'intégration
-- ✅ Tests UI Espresso
+### Prochaines étapes Version 1.0
+- ⏳ Tests de composants UI
+- ⏳ Tests end-to-end
+- ⏳ Documentation utilisateur
+- ⏳ Process de publication
 
-## Version 1.1.0 (Prochaine Version)
+## Version 1.1.0
 
 ### Nouvelles Fonctionnalités
-- [ ] Gestion des rapports d'intervention
-- [ ] Galerie photos intégrée
-- [ ] Templates de rapports
-- [ ] Export PDF
+- ⏳ Gestion des rapports d'intervention
+- ⏳ Scan des QR codes sites
+- ⏳ Galerie photos
+- ⏳ Templates de rapports pré-remplis
+- ⏳ Export PDF des rapports
+- ⏳ Signature client
 
 ### Améliorations
-- [ ] Mode hors-ligne amélioré
-- [ ] Performance des requêtes Room
-- [ ] UI/UX raffinée
+- ⏳ Mode hors-ligne
+- ⏳ Performances Room
+- ⏳ Optimisations UI/UX
+- ⏳ Support tablettes
 
-### Tests & Qualité
-- [ ] Tests de performance
-- [ ] Tests de charge
-- [ ] Intégration Crashlytics
+### Qualité
+- ⏳ Monitoring avec Crashlytics
+- ⏳ Analytics utilisateur
+- ⏳ Tests de performance
+- ⏳ Tests de compatibilité tablettes
 
 ## Version 1.2.0
 
 ### Fonctionnalités Avancées
-- [ ] Synchronisation cloud
-- [ ] Partage de rapports
-- [ ] Statistiques et analytics
+- ⏳ Synchronisation Cloud
+- ⏳ Partage des rapports
+- ⏳ Notifications push
+- ⏳ Mode responsable équipe
+- ⏳ Historique interventions
 
 ### Sécurité
-- [ ] Authentification biométrique
-- [ ] Chiffrement des données sensibles
-- [ ] Gestion des permissions avancée
+- ⏳ Authentification biométrique
+- ⏳ Chiffrement des données 
+- ⏳ Backup et restauration
 
-## Versions Futures
+## Vision Long Terme
 
-### Vision Long Terme
-- Intégration IoT
-- IA pour les diagnostics
-- Réalité augmentée
+### Évolutions Futures
+- Intégration IoT pour monitoring
+- IA pour suggestions rapports
+- Réalité augmentée pour assistance
+- Module de planification
 
 ### Améliorations Continues
-- Optimisation continue
 - Support des nouvelles versions Android
-- Évolution de l'UI/UX
+- Optimisations continues
+- Nouveaux templates de rapports
+- Enrichissement des statistiques
+
+## Légende
+✅ Implémenté
+⏳ En attente
