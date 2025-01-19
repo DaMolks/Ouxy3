@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.damolks.ouxy3.data.repository.SiteRepository
 import com.damolks.ouxy3.data.repository.TechnicianRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
@@ -33,27 +34,25 @@ class HomeViewModel(
         viewModelScope.launch {
             _state.value = HomeState.Loading
 
-            combine(
-                technicianRepository.getAllTechnicians(),
-                siteRepository.getAllSites()
-            ) { technicians, sites ->
-                val technician = technicians.firstOrNull()
-                technician?.let {
-                    HomeState.Content(
-                        technicianName = "${it.firstName} ${it.lastName}",
-                        siteCount = sites.size,
-                        sector = it.sector,
-                        teamLeader = it.teamLeader
-                    )
-                } ?: HomeState.Error("Aucun technicien trouvé")
-            }
-            .catch { e ->
-                _state.value = HomeState.Error(e.message ?: "Une erreur est survenue")
-            }
-            .onEach { state ->
-                _state.value = state
-            }
-            .launchIn(viewModelScope)
+            technicianRepository.getAllTechnicians()
+                .combine(siteRepository.getAllSites()) { technicians, sites ->
+                    val technician = technicians.firstOrNull()
+                    technician?.let { tech ->
+                        HomeState.Content(
+                            technicianName = "${tech.firstName} ${tech.lastName}",
+                            siteCount = sites.size,
+                            sector = tech.sector,
+                            teamLeader = tech.teamLeader
+                        )
+                    } ?: HomeState.Error("Aucun technicien trouvé")
+                }
+                .catch { e ->
+                    _state.value = HomeState.Error(e.message ?: "Une erreur est survenue")
+                }
+                .onEach { state ->
+                    _state.value = state
+                }
+                .launchIn(viewModelScope)
         }
     }
 }
