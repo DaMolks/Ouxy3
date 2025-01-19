@@ -1,37 +1,33 @@
 # Journal des Modifications
 
-## [18-01-2025] Ajout de l'injection de dépendances
+## [18-01-2025] Nettoyage et Correction des Duplications
 
 ### Contexte
-- Erreur d'injection du MarketplaceViewModel
-- Modules Koin manquants
+- Duplications de classes dans les fichiers TechnicianFormState.kt et TechnicianProfileViewModel.kt
+- Nécessité de centraliser les classes liées aux techniciens
 
 ### Actions Réalisées
-- ✅ Ajout du module ViewModel
-  - Injection du MarketplaceViewModel
-  - Injection du SettingsViewModel
-- ✅ Configuration du module Repository
-  - MarketplaceRepository
-- ✅ Mise à jour du DatabaseModule
-  - Ajout du MarketplaceDao
-- ✅ Intégration dans l'application
-  - Ajout de repositoryModule dans Koin
+- ✅ Suppression des déclarations redondantes dans TechnicianProfileViewModel
+  - Suppression de la classe TechnicianProfileState
+  - Suppression de la classe TechnicianProfileEvent
+- ✅ Centralisation dans TechnicianProfileState.kt
+  - Ajout de la fonction de conversion toTechnician
+  - Maintien des classes initiales
+  - Ajout des imports nécessaires
 
 ### Impact
-- Résolution des erreurs d'injection
-- Structure d'injection complète
-- Support de la persistance marketplace
+- Code plus propre et maintenu à un seul endroit
+- Résolution des erreurs de compilation
+- Meilleure organisation du code
 
 ### Réflexions & Suggestions
-- 💡 Ajouter des logs pour le monitoring des injections
-- 💡 Implémenter des tests d'injection
-- ⚠️ Penser à la migration de base de données
+- 💡 Envisager de renommer TechnicianProfileState.kt en TechnicianModels.kt
+- 💡 Ajouter de la documentation sur les classes
+- ⚠️ Vérifier les autres potentielles duplications
 
 ### Prochain focus
-1. Tests des injections
-2. Tests de la persistance
-3. Intégration des nouveaux modules
+1. Tests des classes de technicien
+2. Documentation des classes
+3. Vérification du code dupliqué
 
-## [18-01-2025] Corrections et Ajouts
-
-[Le reste du LOG.md reste identique]
+[Le reste du LOG.md reste identique...]
