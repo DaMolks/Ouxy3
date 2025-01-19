@@ -14,6 +14,14 @@ data class TechnicianEntity(
     val teamLeader: String
 )
 
+fun TechnicianEntity.toDomain() = Technician(
+    matricule = matricule,
+    firstName = firstName,
+    lastName = lastName,
+    sector = sector,
+    teamLeader = teamLeader
+)
+
 fun Technician.toEntity() = TechnicianEntity(
     matricule = matricule,
     firstName = firstName,
