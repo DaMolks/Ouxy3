@@ -11,7 +11,7 @@ class TechnicianProfileViewModel(
     private val repository: TechnicianRepository
 ) : ViewModel() {
 
-    private val _state = MutableLiveData<TechnicianProfileState>()
+    private val _state = MutableLiveData<TechnicianProfileState>(TechnicianProfileState.Initial)
     val state: LiveData<TechnicianProfileState> = _state
 
     private val _events = MutableLiveData<TechnicianProfileEvent?>()
@@ -32,13 +32,4 @@ class TechnicianProfileViewModel(
     fun clearEvent() {
         _events.value = null
     }
-}
-
-sealed class TechnicianProfileState {
-    object Loading : TechnicianProfileState()
-    data class Error(val message: String) : TechnicianProfileState()
-}
-
-sealed class TechnicianProfileEvent {
-    object NavigateToSignature : TechnicianProfileEvent()
 }
