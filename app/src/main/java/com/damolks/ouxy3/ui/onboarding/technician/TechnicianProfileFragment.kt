@@ -56,7 +56,7 @@ class TechnicianProfileFragment : Fragment() {
                 is TechnicianProfileState.Error -> {
                     binding.progressIndicator.isVisible = false
                     binding.nextButton.isEnabled = true
-                    Snackbar.make(binding.root, R.string.error_field_required, Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(binding.root, state.message, Snackbar.LENGTH_LONG).show()
                 }
                 else -> {
                     binding.progressIndicator.isVisible = false
