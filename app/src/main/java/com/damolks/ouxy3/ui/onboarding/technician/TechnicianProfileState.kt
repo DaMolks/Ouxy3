@@ -17,11 +17,15 @@ data class TechnicianFormState(
 )
 
 fun TechnicianFormState.toTechnician() = Technician(
+    id = 0L,  // Auto-generated
     firstName = firstName,
     lastName = lastName,
     sector = sector,
     matricule = matricule,
-    teamLeader = teamLeader
+    teamLeader = teamLeader,
+    signaturePath = null,
+    createdAt = System.currentTimeMillis(),
+    updatedAt = System.currentTimeMillis()
 )
 
 sealed class TechnicianProfileEvent {
