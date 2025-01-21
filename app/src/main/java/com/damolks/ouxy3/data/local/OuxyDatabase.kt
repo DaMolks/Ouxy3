@@ -14,7 +14,7 @@ import com.damolks.ouxy3.data.local.converter.DateTimeConverter
         Technician::class,
         Site::class
     ],
-    version = 1,
+    version = 2,  // Incrémenté la version
     exportSchema = true
 )
 @TypeConverters(DateTimeConverter::class)
@@ -39,7 +39,9 @@ abstract class OuxyDatabase : RoomDatabase() {
                 context.applicationContext,
                 OuxyDatabase::class.java,
                 DATABASE_NAME
-            ).build()
+            )
+            .fallbackToDestructiveMigration()  // En dev uniquement ! Pour la prod, il faudra une vraie stratégie de migration
+            .build()
         }
     }
 }
