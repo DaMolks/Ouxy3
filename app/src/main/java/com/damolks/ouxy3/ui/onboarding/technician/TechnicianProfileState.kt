@@ -1,6 +1,6 @@
 package com.damolks.ouxy3.ui.onboarding.technician
 
-import com.damolks.ouxy3.data.repository.Technician
+import com.damolks.ouxy3.data.model.Technician
 
 sealed class TechnicianProfileState {
     object Initial : TechnicianProfileState()
