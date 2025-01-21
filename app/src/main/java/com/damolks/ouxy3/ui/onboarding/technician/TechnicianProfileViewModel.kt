@@ -1,5 +1,6 @@
 package com.damolks.ouxy3.ui.onboarding.technician
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,9 +22,14 @@ class TechnicianProfileViewModel(
         viewModelScope.launch {
             try {
                 _state.value = TechnicianProfileState.Loading
-                repository.saveTechnician(formState.toTechnician())
+                Log.d("TechnicianProfileVM", "Saving technician: ${formState}")
+                val technician = formState.toTechnician()
+                Log.d("TechnicianProfileVM", "Mapped to technician: ${technician}")
+                repository.saveTechnician(technician)
+                Log.d("TechnicianProfileVM", "Successfully saved technician")
                 _events.value = TechnicianProfileEvent.NavigateToSignature
             } catch (e: Exception) {
+                Log.e("TechnicianProfileVM", "Error saving technician", e)
                 _state.value = TechnicianProfileState.Error(e.message ?: "Une erreur est survenue")
             }
         }
