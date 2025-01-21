@@ -2,7 +2,6 @@ package com.damolks.ouxy3.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.damolks.ouxy3.data.repository.Technician
 
 @Entity(tableName = "technicians")
 data class TechnicianEntity(
