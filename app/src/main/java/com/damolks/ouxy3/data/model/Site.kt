@@ -2,7 +2,6 @@ package com.damolks.ouxy3.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.time.LocalDateTime
 
 @Entity(tableName = "sites")
 data class Site(
@@ -13,6 +12,6 @@ data class Site(
     val contactName: String?,
     val contactPhone: String?,
     val notes: String?,
-    val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now()
+    val createdAt: Long = System.currentTimeMillis(),
+    val updatedAt: Long = System.currentTimeMillis()
 )
