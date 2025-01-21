@@ -2,17 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_dashboard">
+    app:startDestination="@+id/navigation_home">
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.damolks.ouxy3.ui.main.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard" />
-
-    <fragment
-        android:id="@+id/navigation_reports"
-        android:name="com.damolks.ouxy3.ui.main.reports.ReportsFragment"
-        android:label="@string/title_reports" />
+        android:id="@+id/navigation_home"
+        android:name="com.damolks.ouxy3.ui.main.home.HomeFragment"
+        android:label="@string/title_home" />
 
     <fragment
         android:id="@+id/navigation_sites"
@@ -20,8 +15,13 @@
         android:label="@string/title_sites" />
 
     <fragment
-        android:id="@+id/navigation_profile"
-        android:name="com.damolks.ouxy3.ui.main.profile.ProfileFragment"
-        android:label="@string/title_profile" />
+        android:id="@+id/navigation_marketplace"
+        android:name="com.damolks.ouxy3.ui.main.marketplace.MarketplaceFragment"
+        android:label="@string/title_marketplace" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.damolks.ouxy3.ui.main.settings.SettingsFragment"
+        android:label="@string/title_settings" />
 
 </navigation>
